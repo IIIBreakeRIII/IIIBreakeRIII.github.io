@@ -4,7 +4,7 @@ title: "[일상] 첫 블로그 (Feat. Github, Jekyll)"
 author: "Dev.Paul"
 categories: Daily
 tags: [Github, Blog, Jekyll, Github-Blog, Jekyll-Chripy, Develop, Daily]
-image: 
+image: chirpy.png
 ---
 
 <br>
@@ -12,6 +12,7 @@ image:
 > 깃허브로 블로그 시작하려다가 4일동안 깃허브의 노예가 된 썰.txt
 
 <br>
+
 <h3>0. 블로그를 시작하며...</h3>
 <hr>
 
