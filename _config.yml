@@ -20,7 +20,7 @@ permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Dev.Paul's Page"
+title:		           "Dev.Paul"
 description:	       'Tech, Photo, Life Blog by Dev.Paul'
 author:              'HS.Ryu'
 
