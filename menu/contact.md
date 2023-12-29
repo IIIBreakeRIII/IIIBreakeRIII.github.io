@@ -1,7 +1,18 @@
 ---
 layout: page
-title: Contact
+title: 📞 Contact
 permalink: /contact
 ---
+<p style="text-align: center;">
+	<a href="https://instagram.com/1intheworld_hs.ryu__" target="_blank"> [Photography - Instagram] </a>
+</p>
+<p style="text-align: center;">
+	<a href="https://instagram.com/_dev.paul_" target="_blank"> [Developer - Instagram] </a>
+</p>
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+<p style="text-align: center">
+
+More About Me, Visit My <a href="https://github.com/IIIBreakeRIII" target="_blank"> Github Page </a> .
+<br>
+You Can Also Contact Me By Instagram, E-Mail, Discord, etc.
+</p>
