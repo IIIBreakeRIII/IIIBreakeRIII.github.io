@@ -82,8 +82,9 @@ $ arch -arm64 ...
 다음 사이트에 들어가면 다양한 깃허브 블로그 테마을 지원한다.
 <br><br>
 
---- [Jekyll Theme](https://github.com/topics/jekyll-theme){:target="_blank"} ---
-{: .text-center }
+<p style="text-align: center">
+	<a href="https://github.com/topics/jekyll-theme" target="_blank"> --- Jekyll Theme --- </a>
+</p>
 <br>
 하지만, 많은 테마들이 무료로 지원하는 경우 지원해주는 기능이 적었다.
 <br>
@@ -110,7 +111,7 @@ $ arch -arm64 ...
 <br>
 잘 살펴보면 답이 존재한다.
 <br><br>
-**<u>컴퓨터는 거짓말을하지 않으니깐.</u>**
+**<u>컴퓨터는 거짓말을 하지 않으니깐.</u>**
 <br>
 ~~(By. Jeeo...)~~
 <br>
