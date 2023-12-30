@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Dev.Paul's Page
+title: 🧑🏻‍💻 Dev.Paul's Page
 permalink: /about
 ---
 <h3 style="text-align: center;">Developer, Photographer, Film Director</h3>
