@@ -195,7 +195,7 @@ lua 의 경우 다음 방법으로 키 바인딩을 진행한다.
 ```lua
 -- map('모드', '바인딩할 키', '명령어', 'opts')
 -- 아래는 NORMAL 모드에서 :w 명령어를 맥 기준 <option> + s 로 바인딩하는 예시
-map('n', '<A-s> <CMD>w<CR>, opts)
+map('n', '<A-s>', '<CMD>w<CR>', 'opts')
 ```
 
 <br>
