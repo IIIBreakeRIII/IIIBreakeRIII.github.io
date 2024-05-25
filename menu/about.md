@@ -6,8 +6,6 @@ permalink: /about
 <h3 style="text-align: center;">Developer, Photographer, Film Director</h3>
 <hr>
 
-![paul](https://github.com/IIIBreakeRIII/Programmers/assets/89850286/1f40dedd-f082-4fe5-bc00-3ff0a5d00e26)
-
 <h3 style="text-align: center;"> 💡 Introduce About Me 💡 </h3>
 * **Web Front-End Developer**
 * **Mobile Application Developer**
