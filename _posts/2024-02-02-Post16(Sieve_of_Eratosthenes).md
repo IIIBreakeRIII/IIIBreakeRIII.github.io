@@ -11,7 +11,6 @@ tags:
   - Computer-Science
   - Coding Test
   - Study
-image: PrimeNum.png
 ---
 
 <br>

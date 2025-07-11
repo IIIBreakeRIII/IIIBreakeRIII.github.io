@@ -1,21 +1,22 @@
 ---
 layout: page
-title: 🧑🏻‍💻 Dev.Paul's Page
+title: Dev/ Paul's Blog
 permalink: /about
 ---
-<h3 style="text-align: center;">Developer, Photographer, Film Director</h3>
-<hr>
 
-![paul](https://github.com/IIIBreakeRIII/Programmers/assets/89850286/1f40dedd-f082-4fe5-bc00-3ff0a5d00e26)
+<div style="text-align: center;">
+  <img src='assets/img/profile.PNG' width='200'>
+</div>
 
-<h3 style="text-align: center;"> 💡 Introduce About Me 💡 </h3>
-* **Web Front-End Developer**
-* **Mobile Application Developer**
-* Based in Republic of Korea
-* Student in Sangmyung Univ.
-* Love Photography
-* Korean, English
+Hyeonso Ryu, A.K.A **Dev/ Paul**
 
-<p style="text-align: center">
-More About Me, Visit My <a href="https://github.com/IIIBreakeRIII" target="_blank"> Github Page </a> .
-</p>
+Based In **Republic of Korea**
+
+Software Engineer : FE / Mobile / Service Production
+
+Love Photography
+
+Korean, English
+
+**More about me?**
+**Visit my Websites, <a href="https://devpaul.dev" target="_blank">Dev/ Paul</a>**
