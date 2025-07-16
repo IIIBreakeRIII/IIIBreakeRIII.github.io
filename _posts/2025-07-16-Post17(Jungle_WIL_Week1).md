@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Jungle] WIL : Week-1"
+title: "[Jungle] WIL : Week-1 [1]"
 author: Dev/ Paul
 categories: Krafton-Jungle
 tags:
@@ -14,7 +14,8 @@ tags:
   - Jungle
 ---
 
-> 크래프톤 정글에서의 1주차를 마치는 Week-I-Learn
+> 크래프톤 정글에서의 1주차를 마치는 Week-I-Learn [1]  
+> 해당 글은 [Notion TIL & WIL DB](https://1intheworldhsryu.notion.site/Jungle-Dev-Paul-s-Study-DB-22d27535a87280edad52c965f5658b69?source=copy_link)에서도 확인하실 수 있습니다.
 
 ## 2025.07.12 ~ 13
 
@@ -300,3 +301,217 @@ def quick_sort(arr):
   - [퀵 정렬](https://ko.wikipedia.org/wiki/%ED%80%B5_%EC%A0%95%EB%A0%AC)
   - [13-05. 퀵 정렬 #1](https://wikidocs.net/219271)
 
+<br />
+> Heap Sort란
+
+- 최대 힙 트리나 최소 힙 트리를 구성하여 정렬을 하는 방법
+- 선택 정렬을 개선한 정렬 방식 중 하나로, 완전 이진 트리를 이용한 `Max Heap` or `Min Heap` 트리 구조를 활용하여 배열을 정렬
+  - 모든 부모 노드가 자신의 자식 노드보다 큰 값(또는 작은 값)을 갖는 특성
+- 알고리즘
+  - n개의 노드에 대한 완전 이진 트리를 구성
+    - 순서는 루트 노드 -> 부모 노드 -> 왼쪽 자식 노드 -> 오른쪽 자식 노드
+  - 최대 힙(부모 노드 -> 자식 노드 인 트리)을 구성
+  - 큰 수를 가진 노드와 작은 수를 가진 노드를 서로 교환
+- 구성(`Max Heap` 기준)
+<img src="../assets/img/max_heap_img.png"/>
+- `Heapify`의 조건
+  - 부모 노드보다 자식 노드가 작은 값을 갖고 있어야 함
+  - 새로운 자식 노드는 항상 왼쪽에서 오른쪽으로 삽입
+  - 하나의 `Level`이 끝나야 그 다음 `Level`을 생성
+- `Sorting`의 조건
+  - 최하위 자식 노드가 2개라면, 우측 노드와 루트 노드를 교환
+  - `Max`노드가 `pop()`된 이후, 루트 노드는 그 다음 `Max`노드와 교환
+  - 여기서 지킬 공식은, _언제나 부모 노드는 자식 노드보다 커야함_
+- _👍 Pros_
+  - 시간 복잡도 : 모든 경우에서 `O(nlogn)`을 보장 → 데이터 양이 많아도 성능이 급격히 떨어지지 않음
+  - 공간 효율성 : 추가적인 메모리를 거의 사용하지 않고, `In-Place Algo` 방식을 사용
+  - 최악의 경우에도 안정적임
+- _👎 Cons_
+  - 구현 복잡성 : 상대적으로 단순한 알고리즘이지만 그 구현이 어려운 편.
+  - 불안정 정렬 : 같은 값의 요소가 초기의 순서를 유지하지 않을 수 있음
+  - 같은 `O(nlogn)`에 비해 느림 : 퀵 정렬이 평균적인 경우 속도를 더 보장함
+
+_Code Example_
+```python
+def heapify(arr, n, i):
+    largest = i  # 루트를 최대값으로 가정
+    l = 2 * i + 1  # 왼쪽 자식
+    r = 2 * i + 2  # 오른쪽 자식
+
+    # 왼쪽 자식이 루트보다 크다면
+    if l < n and arr[l] > arr[largest]:
+        largest = l
+
+    # 오른쪽 자식이 현재 최대값보다 크다면
+    if r < n and arr[r] > arr[largest]:
+        largest = r
+
+    # 최대값이 루트가 아니라면
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # 교환
+
+        # 교환된 루트에 대해 다시 힙 구성
+        heapify(arr, n, largest)
+
+def heapSort(arr):
+    n = len(arr)
+
+    # 초기 최대 힙 구성
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # 하나씩 원소를 꺼내어 다시 최대 힙 구성
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # 루트와 마지막 요소 교환
+        heapify(arr, i, 0)
+```
+
+시간 복잡도 및 공간 복잡도
+- 시간 복잡도
+  - 평균 / 최악 모두 `O(nlogn)`
+  <img src="../assets/img/heap_sort_time_complexity.png" />
+- 공간 복잡도
+  - `O(1)`
+    - 추가 배열을 사용하지 않고, 주어진 배열 내에서 정렬 수행
+  <img src="../assets/img/heap_sort_space_complexity.png" />
+
+- 참고 자료
+  - [힙 정렬](https://ko.wikipedia.org/wiki/%ED%9E%99_%EC%A0%95%EB%A0%AC)
+  - [5-04. Sort : Heap Sort](https://wikidocs.net/233712)
+
+<br />
+> Counting Sort란
+
+- 비교를 하지 않는 정렬
+- 주어진 배열 내에서 각 요소가 몇 번 등장했는지 counting하여 정렬하는 방법
+- 즉, 특정 범위 내에 값을 가지는 데이터에 대해 매우 효율적으로 작동
+- 조건
+  - 입력 배열의 요소가 정해져 있어야함
+    - e.g., 1 ~ 10,000 or max: 10,000
+  - 입력 데이터가 정수여야 함
+- _👍 Pros_
+  - 정렬 안정성이 좋음
+  - 정렬 속도가 빠름
+    - 시간 복잡도는 `O(n)`
+- _👎 Cons_
+  - 한정적인 메모리 사용량
+    - 입력 데이터의 최대 데이터값이 클 수록, 메모리 사용량이 많아지는 구조
+  - 제한된 데이터 유형
+    - 정수와 같은 특정한 유형의 데이터만 표현이 가능
+- 알고리즘
+  - 입력 배열의 요소 범위 확인
+  - 카운트 배열 초기화 및 데이터 count
+    - `[0] * input_count`
+    - `[0, 2, 1, 4, 1]` -> `output` : `1, 2, 1, 0, 1`
+
+_Code Example_
+```python
+# BOJ No.10989 수 정렬하기 3
+
+num = int(input())
+# num_list라는 입력 조건의 자연수 만큼 배열 생성
+num_list = [0] * 10001
+
+# 현재 들어오는 숫자의 index로 가서 count += 1
+# 2일 경우, num_list[2] += 1
+for _ in range(num):
+    n = int(input())
+    num_list[n] += 1
+
+# 0부터 10,000까지 저장되어 있는 수의 개수 만큼 그 index 출력
+# num_list[2] = 2 일 경우, 2\n 2 출력
+for i in range(10001):
+    if num_list[i] != 0:
+        for j in range(num_list[i]):
+            print(i)
+
+# TestCase
+# Input: 10 5\n 2\n 3\n 1\n 4\n 2\n 3\n 5\n 1\n 7
+# Output: 1\n 1\n 2\n 3\n 3\n 4\n 5\n 5\n 7
+
+# Input 조건
+# num = 개수 (1 ~ 10,000,000)
+# num_list = (1 ~ 10,000)의 자연수 num개
+```
+- 참고 자료
+  - [5-08. Sort : Count Sort](https://wikidocs.net/233715)
+
+<br />
+> Radix Sort란
+
+- 기수 별로 비교 없이 수행하는 정렬 알고리즘
+- 기수에 따라 원소를 버킷에 넣는 방식으로 비교 연산이 불필요함
+- 알고리즘
+  - 기수 정렬은 최상위 유효 숫자(Most Significant Digit)나 최하위 유효 숫자(Least Significant Digit)에서 시작하도록 구현할 수 있음
+    - e.g., 1234 -> MSD(1) or LSD(4)
+  - `LSD` 기수 정렬의 경우 짧은 키가 긴 키보다 먼저 나오고, 같은 길이의 경우 사전순으로 정렬
+    - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]와 같은 정수 표현의 일반적인 순서와 일치
+    - 때문에 안정 정렬에 속함
+  - `MSD` 기수 정렬의 경우 문자열이나 고정 길이 정수 표현 정렬에 적합
+    - [b, c, d, e, f, ba] -> [b, ba, c, d, e, f]로 정렬
+    - 사전식 순서로 10진법의 경우 [1, 10, 2, 3, 4, 5, 6, 7, 8 ,9] 로 정렬
+    - 특정 구현 방식에서는 중복 키의 원래 순서를 항상 유지하지 않아 불안정 정렬에 속함
+- 정렬 방법
+```
+170, 45, 75, 90, 2, 24, 802, 66
+
+// 1의 자리만 보고 수행
+170, 90, 2, 802, 24, 45, 75, 66
+
+// 10의 자리만 보고 수행
+2, 802, 24, 45, 66, 170, 75, 90
+
+// 100의 자리만 보고 수행
+2, 24, 45, 66, 75, 90, 170, 802
+```
+
+_Code Example_
+```Python
+def countingSort(arr, digit):
+    n = len(arr)
+  
+    output = [0] * (n)
+    count = [0] * (10)
+    
+    for i in range(0, n):
+        index = int(arr[i] / digit) 
+        count[(index) % 10] += 1
+ 
+    for i in range(1, 10):
+        count[i] += count[i - 1]  
+        print(i, count[i])
+    
+    i = n - 1
+
+    while i >= 0:
+        index = int(arr[i] / digit)
+        output[count[(index) % 10 ] - 1] = arr[i]
+        count[(index) % 10 ] -= 1
+        i -= 1
+
+    for i in range(0, len(arr)): 
+        arr[i] = output[i]
+ 
+def radixSort(arr):
+
+    maxValue = max(arr)
+
+    digit = 1
+
+    while int(maxValue / digit) > 0: 
+        countingSort(arr, digit)
+        digit *= 10
+ 
+arr = [170, 45, 75, 90, 802, 24, 2, 66]
+
+radixSort(arr)
+```
+
+- 시간 복잡도 및 공간 복잡도
+  - 시간 복잡도의 경우, `O(nw)`
+    - n은 키의 수, w는 키의 길이
+    - 키의 길이 즉, 자릿수에 영향을 많이 받게 됨
+    <img src="assets/img/radix_sort_time_complexity.png" />
+  - 공간 복잡도의 경우, `O(k + n)`
+    - 여기서 k = 기수의 도메인 크기
+  - 적당한 도메인에서 최적화된 기수 정렬은 매우 빠를 수 있지만, 그만큼 제약도 많음
